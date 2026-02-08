@@ -1,7 +1,7 @@
 /* styles/main.css */
 @font-face {
     font-family: 'Florian';
-    src: url('/assets/AvenirLight.otf') format('opentype');
+    src: url('./assets/AvenirLight.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -9,7 +9,7 @@
 
 @font-face {
     font-family: 'Florian';
-    src: url('/assets/fonnts.com-florian-bold.otf') format('opentype');
+    src: url('./assets/fonnts.com-florian-bold.otf') format('opentype');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -76,7 +76,7 @@ img {
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: var(--color-bg);
+    background-color: transparent;
     padding: var(--spacing-sm) 0;
     display: flex;
     justify-content: center;
@@ -86,8 +86,7 @@ img {
 }
 
 .fixed-header.scrolled {
-    background-color: rgba(14, 14, 14, 0.95);
-    backdrop-filter: blur(10px);
+    background-color: transparent;
 }
 
 /* Brand Logo */
