@@ -1,7 +1,7 @@
 /* styles/main.css */
 @font-face {
     font-family: 'Florian';
-    src: url('../assets/fonts/AvenirLight.otf') format('opentype');
+    src: url('/assets/AvenirLight.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -9,7 +9,7 @@
 
 @font-face {
     font-family: 'Florian';
-    src: url('../assets/fonts/fonnts.com-florian-bold.otf') format('opentype');
+    src: url('/assets/fonnts.com-florian-bold.otf') format('opentype');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -86,7 +86,8 @@ img {
 }
 
 .fixed-header.scrolled {
-    background-color: transparent;
+    background-color: rgba(14, 14, 14, 0.95);
+    backdrop-filter: blur(10px);
 }
 
 /* Brand Logo */
@@ -295,13 +296,14 @@ img {
     margin-bottom: var(--spacing-sm);
 }
 
+/* Improved Menu Item with Dotted Leaders */
 .menu-item {
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
-    margin-bottom: var(--spacing-sm);
-    gap: var(--spacing-sm);
+    margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
+    gap: 0.5rem;
     transition: transform 0.2s ease;
+    position: relative;
 }
 
 .menu-item:hover {
@@ -310,24 +312,56 @@ img {
 
 .item-name {
     font-family: var(--font-primary);
-    font-size: clamp(0.75rem, 1.1vw, 0.875rem);
+    font-size: clamp(0.8rem, 1.1vw, 0.9rem);
     font-weight: 400;
     letter-spacing: 0.03em;
-    flex: 1;
+    white-space: nowrap;
+    flex-shrink: 0;
+    background-color: var(--color-bg);
+    padding-right: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.item-description {
+    display: block;
+    font-size: clamp(0.7rem, 1vw, 0.8rem);
+    color: var(--color-text-dark);
+    font-weight: 300;
+    margin-top: 0.25rem;
+    letter-spacing: 0.02em;
+}
+
+.item-dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+    margin: 0 0.5rem;
+    min-width: 20px;
+    height: 1px;
+    align-self: flex-end;
+    margin-bottom: 0.35em;
 }
 
 .item-price {
     font-family: var(--font-primary);
-    font-size: clamp(0.75rem, 1.1vw, 0.875rem);
+    font-size: clamp(0.8rem, 1.1vw, 0.9rem);
     font-weight: 700;
     white-space: nowrap;
+    flex-shrink: 0;
+    background-color: var(--color-bg);
+    padding-left: 0.5rem;
+    position: relative;
+    z-index: 1;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.02em;
 }
 
 .menu-notes {
     margin-top: var(--spacing-md);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .note-text {
@@ -369,6 +403,12 @@ img {
     border: 2px solid var(--color-text);
     padding: var(--spacing-sm) var(--spacing-md);
     display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.social p:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
 }
 
 .logo-footer {
@@ -424,14 +464,33 @@ img {
         gap: var(--spacing-sm);
     }
     
+    .menu-section {
+        width: 85%;
+    }
+    
+    .image-section {
+        width: 85%;
+    }
+    
+    /* Better mobile menu layout - keep items on one line */
     .menu-item {
-        flex-direction: column;
-        align-items: flex-start;
         gap: 0.25rem;
     }
     
+    .item-name {
+        font-size: clamp(0.75rem, 3.5vw, 0.85rem);
+        max-width: 60%;
+        white-space: normal;
+        line-height: 1.3;
+    }
+    
+    .item-dots {
+        margin: 0 0.25rem;
+        min-width: 10px;
+    }
+    
     .item-price {
-        align-self: flex-end;
+        font-size: clamp(0.75rem, 3.5vw, 0.85rem);
     }
 }
 
