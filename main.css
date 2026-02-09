@@ -95,6 +95,13 @@ img {
     color: var(--color-text);
 }
 
+.brand-logo-img {
+    height: clamp(120px, 16vw, 160px);
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 .brand-top {
     font-size: clamp(1rem, 1.5vw, 1.125rem);
     font-weight: 400;
@@ -441,6 +448,10 @@ img {
 @media (max-width: 768px) {
     :root {
         --header-height: 120px;
+    }
+    
+    .brand-logo-img {
+        height: clamp(100px, 12vw, 120px);
     }
     
     .brand-main {
