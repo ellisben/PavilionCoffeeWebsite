@@ -1,4 +1,3 @@
-<!-- home.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,15 +15,33 @@
 
     <main class="page-home">
         <section class="hero">
-
             <div class="hours fade-in">
                 <p class="hours-label">HOURS:</p>
                 <p class="hours-detail">MON - SUN 9AM - 4PM</p>
             </div>
 
-            <div class="address fade-in">
-                <p>Beamish close, Stretton</p>
-                <p>WARRINGTON</p>
+            <div class="address-container fade-in">
+                <button class="address" id="addressToggle" aria-expanded="false" aria-controls="mapContainer">
+                    <p>Beamish close, Stretton</p>
+                    <p>WARRINGTON</p>
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                
+                <!-- Google Maps Embed -->
+                <div class="map-container" id="mapContainer">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1376.0703933845928!2d-2.5744422495383485!3d53.34184824149292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487afdde04000001%3A0x2e6a2e35143ff290!2sThe%20Pavilion%20Coffee!5e0!3m2!1sen!2suk!4v1770723971920!5m2!1sen!2suk"
+                        width="100%" 
+                        height="300" 
+                        style="border:0; width: 100%;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="The Pavilion Coffee Location">
+                    </iframe>
+                </div>
             </div>
         </section>
 
@@ -32,7 +49,7 @@
             <img src="https://res.cloudinary.com/dpmfwmz9e/image/upload/v1770582802/image4_axmub9.jpg" alt="The Pavilion Coffee Interior" class="hero-image">
         </section>
 
-                <section class="menu-section fade-in">
+        <section class="menu-section fade-in">
             <h2 class="section-title">DRINKS</h2>
             <p class="section-subtitle">Coffee, Tea and Cold Cans</p>
 
@@ -189,10 +206,30 @@
         <div class="divider"></div>
 
         <footer class="menu-footer fade-in">
-            <img src="https://res.cloudinary.com/dpmfwmz9e/image/upload/v1770582802/image5_eymkwy.jpg" class="footer-image">
+            <img src="https://res.cloudinary.com/dpmfwmz9e/image/upload/v1770582802/image5_eymkwy.jpg" class="footer-image" alt="The Pavilion Coffee">
             
-            <div class="social">
-                <p><a href="https://www.instagram.com/pavilioncoffee2024/?hl=en">@PAVILIONCOFFEE2024</a></p>
+            <div class="footer-content">
+                <div class="social">
+                    <a href="https://www.instagram.com/pavilioncoffee2024/?hl=en" class="social-link" aria-label="Follow us on Instagram">
+                        @PAVILIONCOFFEE2024
+                    </a>
+                </div>
+
+                <div class="contact-buttons">
+                    <a href="tel:+441234567890" class="contact-btn phone-btn" aria-label="Call us">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span>CALL US</span>
+                    </a>
+                    <a href="mailto:thepavilioncoffee@gmail.com" class="contact-btn email-btn" aria-label="Email us">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>EMAIL US</span>
+                    </a>
+                </div>
             </div>
         </footer>
     </main>
