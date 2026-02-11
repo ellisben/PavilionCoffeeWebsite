@@ -236,11 +236,11 @@ img {
 .hero-image,
 .menu-image,
 .footer-image {
+    width: 100%;
     height: auto;
     margin-top: var(--spacing-xxs);
     transition: transform 0.3s ease;
 }
-
 
 .hero-image:hover,
 .menu-image:hover {
