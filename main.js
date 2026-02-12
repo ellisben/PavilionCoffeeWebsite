@@ -1,19 +1,38 @@
-// scripts/main.js
 (function() {
     'use strict';
 
-    // Configuration
     const CONFIG = {
         parallaxStrength: 0.03,
         observerMargin: '-50px',
         observerThreshold: 0.15,
-        scrollThreshold: 50
+        scrollThreshold: 50,
+        loadingTime: 1500 // Loading screen duration
     };
 
-    // State
     let ticking = false;
 
-    // Header transparency on scroll with blur effect
+    // LOADING SCREEN //
+    function hideLoadingScreen() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        if (!loadingScreen) {
+            console.log('Loading screen not found');
+            return;
+        }
+
+        console.log('Hiding loading screen...');
+        loadingScreen.classList.add('fade-out');
+        document.body.classList.remove('loading');
+        document.body.classList.add('loaded');
+
+        setTimeout(() => {
+            if (loadingScreen && loadingScreen.parentNode) {
+                loadingScreen.remove();
+                console.log('Loading screen removed');
+            }
+        }, 500);
+    }
+
+    // HEADER READJUSTMENT ON LOAD //
     function initHeaderScroll() {
         const header = document.querySelector('.fixed-header');
         if (!header) return;
@@ -38,11 +57,10 @@
             }
         }, { passive: true });
 
-        // Initial call
         updateHeader();
     }
 
-    // Intersection Observer for fade-in animations
+    // INTERSECTION OBSERVER FOR SCROLL ANIMATIONS //
     function initScrollAnimations() {
         const options = {
             root: null,
@@ -54,18 +72,16 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Unobserve after animation
                     observer.unobserve(entry.target);
                 }
             });
         }, options);
 
-        // Observe all fade-in elements
         const fadeElements = document.querySelectorAll('.fade-in');
         fadeElements.forEach(el => observer.observe(el));
     }
 
-    // Subtle parallax effect on images
+    // IMAGE PARRALAX EFFECT //
     function initParallax() {
         const images = document.querySelectorAll('.hero-image, .menu-image, .footer-image');
         if (images.length === 0) return;
@@ -76,7 +92,7 @@
             images.forEach(img => {
                 const rect = img.getBoundingClientRect();
                 
-                // Only apply parallax when element is in viewport
+    // ONLY TRIGGER WHEN IMAGE IS IN VIEWPORT //
                 if (rect.top < viewportHeight && rect.bottom > 0) {
                     const elementCenter = rect.top + rect.height / 2;
                     const viewportCenter = viewportHeight / 2;
@@ -98,11 +114,10 @@
             }
         }, { passive: true });
 
-        // Initial call
         updateParallax();
     }
 
-    // Lazy load Google Maps iframe for better performance
+    // LAZY LOAD FOR GOOGLE API MAP //
     function initMapLazyLoad() {
         const mapContainer = document.querySelector('.map-container');
         if (!mapContainer) return;
@@ -127,7 +142,7 @@
         observer.observe(mapContainer);
     }
 
-    // Toggle map dropdown when address is clicked
+    // GOOGLE MAP DROP-DOWN TOGGLE //
     function initMapToggle() {
         const addressToggle = document.getElementById('addressToggle');
         const mapContainer = document.getElementById('mapContainer');
@@ -137,13 +152,10 @@
         addressToggle.addEventListener('click', function() {
             const isExpanded = this.getAttribute('aria-expanded') === 'true';
             
-            // Toggle expanded state
             this.setAttribute('aria-expanded', !isExpanded);
             
-            // Toggle map visibility
             mapContainer.classList.toggle('visible');
             
-            // Smooth scroll to map if opening
             if (!isExpanded) {
                 setTimeout(() => {
                     mapContainer.scrollIntoView({ 
@@ -155,17 +167,15 @@
         });
     }
 
-    // Add smooth reveal animation to contact buttons
+    // UNDERLINE ANIMATION FOR CONTACT BUTTONS //
     function initContactButtons() {
         const buttons = document.querySelectorAll('.contact-btn');
         
         buttons.forEach((button, index) => {
-            // Add staggered animation
             button.style.animationDelay = `${index * 0.1}s`;
         });
     }
 
-    // Enhanced menu item interactions
     function initMenuInteractions() {
         const menuItems = document.querySelectorAll('.menu-item');
         
@@ -186,7 +196,7 @@
         });
     }
 
-    // Add click-to-copy functionality for contact info
+    // CONTEXT MENU COPY FOR CONTACT INFO //
     function initContactCopy() {
         const phoneBtn = document.querySelector('.phone-btn');
         const emailBtn = document.querySelector('.email-btn');
@@ -208,7 +218,6 @@
         }
     }
 
-    // Helper function to copy text to clipboard
     function copyToClipboard(text, message) {
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(text).then(() => {
@@ -219,7 +228,6 @@
         }
     }
 
-    // Show a subtle toast notification
     function showToast(message) {
         const toast = document.createElement('div');
         toast.textContent = message;
@@ -245,7 +253,6 @@
         }, 2000);
     }
 
-    // Add CSS animation for toast
     function addToastAnimation() {
         if (document.querySelector('#toast-animation')) return;
         
@@ -260,8 +267,12 @@
         document.head.appendChild(style);
     }
 
-    // Initialize on page load
     function init() {
+        console.log('Initializing...');
+        
+        // Start loading screen timer
+        setTimeout(hideLoadingScreen, CONFIG.loadingTime);
+        
         // Initialize all features
         initHeaderScroll();
         initScrollAnimations();
@@ -273,7 +284,6 @@
         initContactCopy();
         addToastAnimation();
         
-        // Show first elements immediately
         setTimeout(() => {
             const firstElements = document.querySelectorAll('.hero .fade-in');
             firstElements.forEach(el => {
@@ -282,7 +292,6 @@
         }, 100);
     }
 
-    // Wait for DOM
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

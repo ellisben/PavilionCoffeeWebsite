@@ -6,7 +6,15 @@
     <title>The Pavilion Coffee - Warrington</title>
     <link rel="stylesheet" href="main.css">
 </head>
-<body>
+<body class="loading">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <img src="https://res.cloudinary.com/dpmfwmz9e/image/upload/v1770665304/pavilioncoffeelogo_5_nsqcau.png" alt="The Pavilion Coffee" class="loading-logo">
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
     <header class="fixed-header">
         <div class="brand-logo">
             <img src="https://res.cloudinary.com/dpmfwmz9e/image/upload/v1770665304/pavilioncoffeelogo_5_nsqcau.png" alt="The Pavilion Coffee" class="brand-logo-img">
@@ -51,43 +59,59 @@
 
         <section class="menu-section fade-in">
             <h2 class="section-title">DRINKS</h2>
-            <p class="section-subtitle">Coffee, Tea and Cold Cans</p>
+            <p class="section-subtitle">Coffee, Tea and Cold Drinks</p>
 
             <h3 class="category-title">COFFEE</h3>
             <div class="menu-item">
+                <span class="item-name">Espresso</span>
+                <span class="item-dots"></span>
+                <span class="item-price">Single £1.55</span>
+                <span class="item-price">Double £3.10</span>
+            </div>
+            <div class="menu-item">
                 <span class="item-name">Americano</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£2.80</span>
+                <span class="item-price">£3.10</span>
             </div>
             <div class="menu-item">
                 <span class="item-name">Cortado</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£3.25</span>
+                <span class="item-price">£3.50</span>
             </div>
             <div class="menu-item">
                 <span class="item-name">Cappuccino</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£3.25</span>
+                <span class="item-price">£3.75</span>
             </div>
             <div class="menu-item">
                 <span class="item-name">Flat White</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£3.25</span>
+                <span class="item-price">£3.75</span>
             </div>
             <div class="menu-item">
-                <span class="item-name">Cafe Latte</span>
+                <span class="item-name">Latte</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£3.35</span>
+                <span class="item-price">£3.85</span>
             </div>
             <div class="menu-item">
                 <span class="item-name">Iced Coffee</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£3.50</span>
+                <span class="item-price">£4.00</span>
             </div>
             <div class="menu-item">
-                <span class="item-name">Decaffe</span>
+                <span class="item-name">Chai Latte</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£3.00</span>
+                <span class="item-price">£4.00</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Iced Chocolate</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£4.00</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Mocha</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£4.00</span>
             </div>
 
             <h3 class="category-title">SPECIALITY</h3>
@@ -102,58 +126,98 @@
                 <span class="item-price">£0.50</span>
             </div>
             <div class="menu-item">
+                <span class="item-name">Marshmallows</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£1.50</span>
+            </div>
+            <div class="menu-item">
                 <span class="item-name">Hot Chocolate</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£3.50</span>
+                <span class="item-price">£4.00</span>
             </div>
             <div class="menu-item">
                 <span class="item-name">Luxury</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£4.00</span>
+                <span class="item-price">£4.50</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Puppuccino</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£1.75</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Babyccino</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£1.25</span>
             </div>
 
             <h3 class="category-title">TEAS</h3>
             <div class="menu-item">
                 <span class="item-name">English Breakfast</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£2.90</span>
+                <span class="item-price">£3.15</span>
             </div>
             <div class="menu-item">
                 <span class="item-name">Earl Grey</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£2.90</span>
+                <span class="item-price">£3.15</span>
             </div>
             <div class="menu-item">
                 <span class="item-name">Peppermint</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£2.90</span>
+                <span class="item-price">£3.15</span>
             </div>
             <div class="menu-item">
                 <span class="item-name">Fruits Of Eden</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£2.90</span>
+                <span class="item-price">£3.15</span>
             </div>
             <div class="menu-item">
                 <span class="item-name">Honeydew Green</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£2.90</span>
+                <span class="item-price">£3.15</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Matcha Latte</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£4.25</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Peach Iced</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£3.25</span>
             </div>
 
-            <h3 class="category-title">COLD CANS</h3>
+            <h3 class="category-title">COLD DRINKS</h3>
+            <div class="menu-item">
+                <span class="item-name">Kombucha</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£3.50</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Cokes</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£2.00</span>
+            </div>
             <div class="menu-item">
                 <span class="item-name">Marlish Sparkling</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£2.00</span>
+                <span class="item-price">£2.25</span>
             </div>
             <div class="menu-item">
                 <span class="item-name">Still Water</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£2.00</span>
+                <span class="item-price">£1.25</span>
             </div>
             <div class="menu-item">
-                <span class="item-name">Komboucha</span>
+                <span class="item-name">Sanpellegrino</span>
                 <span class="item-dots"></span>
-                <span class="item-price">£3.00</span>
+                <span class="item-price">£2.75</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Supergreen Shot</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£2.95</span>
             </div>
 
             <div class="menu-notes">
@@ -163,24 +227,24 @@
         </section>
 
         <section class="menu-section fade-in">
-            <h2 class="section-title">FOOD</h2>
+            <h2 class="section-title">SNACKS</h2>
             
             <div class="menu-item">
-                <span class="item-name">Pork Pie<span class="item-description">Locally sourced butchers pork pie</span></span>
+                <span class="item-name">Sausage Roll<span class="item-description">Locally sourced from Mr Wards Butchers</span></span>
+                <span class="item-dots"></span>
+                <span class="item-price">£3.15</span>
+            </div>
+            
+            <div class="menu-item">
+                <span class="item-name">Pork Pie<span class="item-description">Locally sourced from Mr Wards Butchers</span></span>
+                <span class="item-dots"></span>
+                <span class="item-price">£3.95</span>
+            </div>
+            
+            <div class="menu-item">
+                <span class="item-name">Ice Cream<span class="item-description">Locally sourced from Daresbury Dairy</span></span>
                 <span class="item-dots"></span>
                 <span class="item-price">£3.50</span>
-            </div>
-            
-            <div class="menu-item">
-                <span class="item-name">Blueberry Muffin<span class="item-description">Freshly baked daily</span></span>
-                <span class="item-dots"></span>
-                <span class="item-price">£2.50</span>
-            </div>
-            
-            <div class="menu-item">
-                <span class="item-name">Pipers Crisps<span class="item-description">Cheese & Onion or Salt & Vinegar</span></span>
-                <span class="item-dots"></span>
-                <span class="item-price">£1.50</span>
             </div>
 
             <div class="menu-notes">
@@ -221,7 +285,7 @@
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
                     </a>
-                    <a href="mailto:thepavilioncoffee@gmail.com" class="contact-btn email-btn" aria-label="Email us">
+                    <a href="/cdn-cgi/l/email-protection#04706c617465726d686d6b6a676b62626161446369656d682a676b69" class="contact-btn email-btn" aria-label="Email us">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
@@ -230,8 +294,7 @@
                 </div>
             </div>
         </footer>
+     <script src="main.js"></script>
     </main>
-
-    <script src="main.js"></script>
-</body>
-</html>
+   </body>
+ </html>
