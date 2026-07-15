@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dpmfwmz9e/image/upload/v1771086072/pavilionicon_asglwz.png">
+    <title>School Fair Pre-Order - The Pavilion Coffee</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="event.css">
+</head>
+<body class="loading">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <img src="https://res.cloudinary.com/dpmfwmz9e/image/upload/v1770665304/pavilioncoffeelogo_5_nsqcau.png" alt="The Pavilion Coffee" class="loading-logo">
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <header class="fixed-header">
+        <div class="brand-logo">
+            <a href="index.html">
+                <img src="https://res.cloudinary.com/dpmfwmz9e/image/upload/v1770665304/pavilioncoffeelogo_5_nsqcau.png" alt="The Pavilion Coffee" class="brand-logo-img">
+            </a>
+        </div>
+    </header>
+
+    <main class="page-home page-order">
+
+        <section class="hero order-hero">
+            <p class="order-eyebrow fade-in">EVENT PAGE</p>
+            <h1 class="order-title fade-in">Broomfields Lunch Pre-Order</h1>
+            <p class="order-intro fade-in">
+                Order ahead so it's ready the moment you arrive. Select your items below,
+                let us know about any allergies, and we'll have everything prepared for you.
+            </p>
+            <p class="order-meta fade-in">
+                Event date: <strong data-event-date>24/07/2026</strong> &nbsp;·&nbsp;
+                Orders close: <strong data-order-deadline>22/07/2026</strong>
+            </p>
+        </section>
+
+        <form class="order-form" id="orderForm" novalidate>
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+            <section class="form-section fade-in">
+                <h2 class="form-section-title">Your Details</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="orderName">Name *</label>
+                        <input type="text" id="orderName" class="form-input" autocomplete="name" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="orderEmail">Email *</label>
+                        <input type="email" id="orderEmail" class="form-input" autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="orderTime">Preferred Collection Time</label>
+                        <input type="text" id="orderTime" class="form-input" placeholder="e.g. 9:30am">
+                    </div>
+                </div>
+            
+            </section>
+              <p class="note-text fade-in">Payment: we'll send you a secure payment link or invoice by email before the event. No need to pay now.</p>
+
+            <section class="menu-section order-menu fade-in">
+                <h2 class="section-title">MENU</h2>
+                <p class="section-subtitle">Tap + / − or type a number to set quantities</p>
+
+                <h3 class="category-title" id="cat-coffee">COFFEE</h3>
+
+                <div class="order-item" data-name="Espresso (Single)" data-price="1.55">
+                    <div class="order-item-info">
+                        <span class="item-name">Espresso <span class="item-variant">Single</span></span>
+                        <span class="item-price">£1.55</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Espresso Single">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Espresso Single">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Espresso Single">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Espresso (Double)" data-price="3.10">
+                    <div class="order-item-info">
+                        <span class="item-name">Espresso <span class="item-variant">Double</span></span>
+                        <span class="item-price">£3.10</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Espresso Double">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Espresso Double">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Espresso Double">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Americano" data-price="3.10">
+                    <div class="order-item-info">
+                        <span class="item-name">Americano</span>
+                        <span class="item-price">£3.10</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Americano">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Americano">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Americano">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Cortado" data-price="3.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Cortado</span>
+                        <span class="item-price">£3.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Cortado">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Cortado">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Cortado">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Cappuccino" data-price="3.75">
+                    <div class="order-item-info">
+                        <span class="item-name">Cappuccino</span>
+                        <span class="item-price">£3.75</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Cappuccino">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Cappuccino">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Cappuccino">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Flat White" data-price="3.75">
+                    <div class="order-item-info">
+                        <span class="item-name">Flat White</span>
+                        <span class="item-price">£3.75</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Flat White">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Flat White">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Flat White">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Latte" data-price="3.85">
+                    <div class="order-item-info">
+                        <span class="item-name">Latte</span>
+                        <span class="item-price">£3.85</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Latte">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Latte">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Latte">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Iced Coffee" data-price="4.00">
+                    <div class="order-item-info">
+                        <span class="item-name">Iced Coffee</span>
+                        <span class="item-price">£4.00</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Iced Coffee">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Iced Coffee">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Iced Coffee">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Chai Latte" data-price="4.00">
+                    <div class="order-item-info">
+                        <span class="item-name">Chai Latte</span>
+                        <span class="item-price">£4.00</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Chai Latte">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Chai Latte">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Chai Latte">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Iced Chocolate" data-price="4.00">
+                    <div class="order-item-info">
+                        <span class="item-name">Iced Chocolate</span>
+                        <span class="item-price">£4.00</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Iced Chocolate">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Iced Chocolate">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Iced Chocolate">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Mocha" data-price="4.00">
+                    <div class="order-item-info">
+                        <span class="item-name">Mocha</span>
+                        <span class="item-price">£4.00</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Mocha">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Mocha">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Mocha">+</button>
+                    </div>
+                </div>
+                <div class="menu-notes">
+                    <p class="note-text">Other milk options available.</p>
+                </div>
+
+                <h3 class="category-title" id="cat-speciality">SPECIALITY</h3>
+
+                <div class="order-item" data-name="Milk" data-price="0.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Milk</span>
+                        <span class="item-price">£0.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Milk">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Milk">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Milk">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Syrups" data-price="0.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Syrups</span>
+                        <span class="item-price">£0.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Syrups">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Syrups">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Syrups">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Marshmallows" data-price="1.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Marshmallows</span>
+                        <span class="item-price">£1.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Marshmallows">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Marshmallows">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Marshmallows">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Hot Chocolate" data-price="4.00">
+                    <div class="order-item-info">
+                        <span class="item-name">Hot Chocolate</span>
+                        <span class="item-price">£4.00</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Hot Chocolate">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Hot Chocolate">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Hot Chocolate">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Luxury Hot Chocolate" data-price="4.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Luxury <span class="item-variant">Hot Chocolate</span></span>
+                        <span class="item-price">£4.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Luxury Hot Chocolate">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Luxury Hot Chocolate">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Luxury Hot Chocolate">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Puppuccino" data-price="1.75">
+                    <div class="order-item-info">
+                        <span class="item-name">Puppuccino</span>
+                        <span class="item-price">£1.75</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Puppuccino">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Puppuccino">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Puppuccino">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Babyccino" data-price="1.25">
+                    <div class="order-item-info">
+                        <span class="item-name">Babyccino</span>
+                        <span class="item-price">£1.25</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Babyccino">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Babyccino">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Babyccino">+</button>
+                    </div>
+                </div>
+
+                <h3 class="category-title" id="cat-teas">TEAS</h3>
+
+                <div class="order-item" data-name="English Breakfast" data-price="3.15">
+                    <div class="order-item-info">
+                        <span class="item-name">English Breakfast</span>
+                        <span class="item-price">£3.15</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of English Breakfast">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of English Breakfast">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of English Breakfast">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Earl Grey" data-price="3.15">
+                    <div class="order-item-info">
+                        <span class="item-name">Earl Grey</span>
+                        <span class="item-price">£3.15</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Earl Grey">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Earl Grey">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Earl Grey">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Peppermint" data-price="3.15">
+                    <div class="order-item-info">
+                        <span class="item-name">Peppermint</span>
+                        <span class="item-price">£3.15</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Peppermint">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Peppermint">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Peppermint">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Fruits Of Eden" data-price="3.15">
+                    <div class="order-item-info">
+                        <span class="item-name">Fruits Of Eden</span>
+                        <span class="item-price">£3.15</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Fruits Of Eden">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Fruits Of Eden">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Fruits Of Eden">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Honeydew Green" data-price="3.15">
+                    <div class="order-item-info">
+                        <span class="item-name">Honeydew Green</span>
+                        <span class="item-price">£3.15</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Honeydew Green">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Honeydew Green">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Honeydew Green">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Matcha Latte" data-price="4.25">
+                    <div class="order-item-info">
+                        <span class="item-name">Matcha Latte</span>
+                        <span class="item-price">£4.25</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Matcha Latte">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Matcha Latte">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Matcha Latte">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Peach Iced Tea" data-price="3.25">
+                    <div class="order-item-info">
+                        <span class="item-name">Peach Iced</span>
+                        <span class="item-price">£3.25</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Peach Iced">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Peach Iced">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Peach Iced">+</button>
+                    </div>
+                </div>
+
+                <h3 class="category-title" id="cat-cold">COLD DRINKS</h3>
+
+                <div class="order-item" data-name="Kombucha" data-price="3.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Kombucha</span>
+                        <span class="item-price">£3.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Kombucha">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Kombucha">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Kombucha">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Cokes" data-price="2.00">
+                    <div class="order-item-info">
+                        <span class="item-name">Cokes</span>
+                        <span class="item-price">£2.00</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Cokes">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Cokes">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Cokes">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Marlish Sparkling" data-price="2.25">
+                    <div class="order-item-info">
+                        <span class="item-name">Marlish Sparkling</span>
+                        <span class="item-price">£2.25</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Marlish Sparkling">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Marlish Sparkling">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Marlish Sparkling">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Still Water" data-price="1.25">
+                    <div class="order-item-info">
+                        <span class="item-name">Still Water</span>
+                        <span class="item-price">£1.25</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Still Water">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Still Water">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Still Water">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Sanpellegrino" data-price="2.75">
+                    <div class="order-item-info">
+                        <span class="item-name">Sanpellegrino</span>
+                        <span class="item-price">£2.75</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Sanpellegrino">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Sanpellegrino">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Sanpellegrino">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Supergreen Shot" data-price="2.95">
+                    <div class="order-item-info">
+                        <span class="item-name">Supergreen Shot</span>
+                        <span class="item-price">£2.95</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Supergreen Shot">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Supergreen Shot">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Supergreen Shot">+</button>
+                    </div>
+                </div>
+
+                <h3 class="category-title" id="cat-snacks">SNACKS</h3>
+
+                <div class="order-item" data-name="Sausage Roll" data-price="3.15">
+                    <div class="order-item-info">
+                        <span class="item-name">Sausage Roll<span class="item-description">Locally sourced from Mr Wards Butchers</span></span>
+                        <span class="item-price">£3.15</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Sausage Roll">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Sausage Roll">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Sausage Roll">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Pork Pie" data-price="3.95">
+                    <div class="order-item-info">
+                        <span class="item-name">Pork Pie<span class="item-description">Locally sourced from Mr Wards Butchers</span></span>
+                        <span class="item-price">£3.95</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Pork Pie">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Pork Pie">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Pork Pie">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Crisps" data-price="1.25">
+                    <div class="order-item-info">
+                        <span class="item-name">Crisps<span class="item-description">Tyrell's & Pipers - flavours vary</span></span>
+                        <span class="item-price">£1.25</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Crisps">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Crisps">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Crisps">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Ice Cream" data-price="3.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Ice Cream<span class="item-description">Locally sourced from Daresbury Dairy</span></span>
+                        <span class="item-price">£3.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Ice Cream">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Ice Cream">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Ice Cream">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Sweet Cones" data-price="1.75">
+                    <div class="order-item-info">
+                        <span class="item-name">Sweet Cones</span>
+                        <span class="item-price">£1.75</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Sweet Cones">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Sweet Cones">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Sweet Cones">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Cookies & Cakes" data-price="0">
+                    <div class="order-item-info">
+                        <span class="item-name">Cookies &amp; Cakes<span class="item-description">Daily selection - price confirmed in store, not included in total below</span></span>
+                        <span class="item-price item-price-varies">Varies</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Cookies and Cakes">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Cookies and Cakes">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Cookies and Cakes">+</button>
+                    </div>
+                </div>
+
+                <h3 class="category-title" id="cat-food">FOOD</h3>
+
+                <div class="order-item" data-name="Toast" data-price="2.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Toast<span class="item-description">Freshly made daily</span></span>
+                        <span class="item-price">£2.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Toast">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Toast">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Toast">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Toasted Sourdough" data-price="3.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Toasted Sourdough<span class="item-description">Freshly made daily</span></span>
+                        <span class="item-price">£3.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Toasted Sourdough">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Toasted Sourdough">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Toasted Sourdough">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Teacake" data-price="3.00">
+                    <div class="order-item-info">
+                        <span class="item-name">Teacake<span class="item-description">Delicious homemade treat</span></span>
+                        <span class="item-price">£3.00</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Teacake">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Teacake">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Teacake">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Tuna Salad Sandwich" data-price="6.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Tuna Salad Sandwich<span class="item-description">Freshly made with the finest ingredients</span></span>
+                        <span class="item-price">£6.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Tuna Salad Sandwich">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Tuna Salad Sandwich">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Tuna Salad Sandwich">+</button>
+                    </div>
+                </div>
+                <div class="order-item" data-name="Tuna Mozzarella Melt" data-price="7.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Tuna Mozzarella Melt<span class="item-description">Freshly made with the finest ingredients</span></span>
+                        <span class="item-price">£7.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Tuna Mozzarella Melt">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Tuna Mozzarella Melt">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Tuna Mozzarella Melt">+</button>
+                    </div>
+                </div>
+                <!-- <div class="order-item" data-name="Halloumi Pep Chilli Toasted Sourdough" data-price="7.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Halloumi, Roasted Peppers, Chilli Jam on Toasted Sourdough<span class="item-description">Freshly made with the finest ingredients</span></span>
+                        <span class="item-price">£7.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Halloumi Pep Chilli Toasted Sourdough">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Halloumi Pep Chilli Toasted Sourdough">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Halloumi Pep Chilli Toasted Sourdough">+</button>
+                    </div>
+                </div> -->
+                <div class="order-item" data-name="Chicken Pesto Tomato Mayo Sandwich" data-price="6.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Chicken, Pesto, Tomato, Mayo Sandwich<span class="item-description">Freshly made with the finest ingredients</span></span>
+                        <span class="item-price">£6.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Chicken Pesto Tomato Mayo Sandwich">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Chicken Pesto Tomato Mayo Sandwich">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Chicken Pesto Tomato Mayo Sandwich">+</button>
+                    </div>
+                </div>
+                <!-- <div class="order-item" data-name="Chicken Pesto Mozzarella Tomato Toastie" data-price="7.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Chicken, Pesto, Mozzarella, Tomato Toastie<span class="item-description">Freshly made with the finest ingredients</span></span>
+                        <span class="item-price">£7.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Chicken Pesto Mozzarella Tomato Toastie">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Chicken Pesto Mozzarella Tomato Toastie">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Chicken Pesto Mozzarella Tomato Toastie">+</button>
+                    </div>
+                </div> -->
+                <div class="order-item" data-name="Bacon Roll" data-price="5.50">
+                    <div class="order-item-info">
+                        <span class="item-name">Bacon Roll<span class="item-description">Freshly made with the finest ingredients</span></span>
+                        <span class="item-price">£5.50</span>
+                    </div>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity of Bacon Roll">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="99" inputmode="numeric" aria-label="Quantity of Bacon Roll">
+                        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity of Bacon Roll">+</button>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="form-section fade-in">
+                <h2 class="form-section-title">Allergens &amp; Dietary Requirements</h2>
+                <p class="form-section-subtitle">Tick anything that applies to your order</p>
+                <div class="allergen-grid">
+                    <label class="allergen-check"><input type="checkbox" name="allergen" value="Gluten"><span>Gluten</span></label>
+                    <label class="allergen-check"><input type="checkbox" name="allergen" value="Dairy"><span>Dairy</span></label>
+                    <label class="allergen-check"><input type="checkbox" name="allergen" value="Nuts"><span>Nuts</span></label>
+                    <label class="allergen-check"><input type="checkbox" name="allergen" value="Egg"><span>Egg</span></label>
+                    <label class="allergen-check"><input type="checkbox" name="allergen" value="Soya"><span>Soya</span></label>
+                    <label class="allergen-check"><input type="checkbox" name="allergen" value="Vegan"><span>Vegan</span></label>
+                    <label class="allergen-check"><input type="checkbox" name="allergen" value="Vegetarian"><span>Vegetarian</span></label>
+                    <label class="allergen-check"><input type="checkbox" name="allergen" value="Other"><span>Other</span></label>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="dietaryNotes">Additional notes</label>
+                    <textarea id="dietaryNotes" class="form-textarea" rows="3" placeholder="e.g. one hot chocolate needs to be dairy-free"></textarea>
+                </div>
+            </section>
+
+            <section class="form-section fade-in">
+                <h2 class="form-section-title">Order Summary</h2>
+                <aside class="order-summary" id="orderSummary" aria-live="polite">
+                    <p class="order-summary-label">YOUR ORDER</p>
+                    <div class="order-summary-items" id="summaryItems">
+                        <p class="summary-empty">No items selected yet</p>
+                    </div>
+                    <div class="order-summary-total">
+                        <span>TOTAL</span>
+                        <span id="summaryTotal">£0.00</span>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="form-section form-actions fade-in">
+                <p class="form-error" id="formError" role="alert"></p>
+                <button type="submit" class="submit-btn" id="submitOrderBtn">Send Order</button>
+                <button type="button" class="copy-btn" id="copyOrderBtn">Copy Order Details</button>
+                <p class="form-help">"Send Order" submits your order straight to us online — no email app needed. If it doesn't go through, tap "Copy Order Details" and email it to us directly instead.</p>
+                <div class="confirmation-panel" id="confirmationPanel" role="status" hidden>
+                    Thanks — your order is on its way to us.
+                </div>
+            </section>
+
+        </form>
+
+        <div class="order-bar" id="orderBar" hidden>
+            <span class="order-bar-count" id="orderBarCount">0 items</span>
+            <span class="order-bar-total" id="orderBarTotal">£0.00</span>
+            <button type="button" class="order-bar-btn" id="orderBarJump">View Order ↓</button>
+        </div>
+
+        <footer class="event-footer fade-in">
+            <p class="note-text">Questions about the event? Get in touch below.</p>
+            <div class="contact-buttons">
+                <a href="tel:+441234567890" class="contact-btn phone-btn" aria-label="Call us">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                </a>
+                <a href="/cdn-cgi/l/email-protection#04706c617465726d686d6b6a676b62626161446369656d682a676b69" class="contact-btn email-btn" aria-label="Email us">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+            </div>
+            <a href="index.html" class="back-link">← Back to homepage</a>
+        </footer>
+
+    </main>
+
+    <script src="event.js"></script>
+</body>
+</html>

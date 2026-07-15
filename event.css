@@ -1,0 +1,615 @@
+/* ============================================================
+   EVENT PRE-ORDER PAGE STYLES
+   Extends main.css — uses the same variables, fonts and colors.
+   This whole file is only needed while the temporary event
+   pre-order page exists. Delete event.css / event.js /
+   event-order.html together once the event has passed.
+   ============================================================ */
+
+.page-order {
+    padding-bottom: var(--spacing-xl);
+}
+
+/* ---- Intro ---- */
+
+.order-hero {
+    margin-top: var(--spacing-lg);
+}
+
+.order-eyebrow {
+    font-family: var(--font-primary);
+    font-size: clamp(0.7rem, 1.1vw, 0.8rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.6;
+    margin-bottom: var(--spacing-xs);
+}
+
+.order-title {
+    font-family: var(--font-primary);
+    font-size: clamp(1.8rem, 4vw, 2.75rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.order-intro {
+    font-family: var(--font-primary);
+    font-size: clamp(0.85rem, 1.3vw, 1rem);
+    font-weight: 400;
+    line-height: 1.8;
+    max-width: 560px;
+    margin: 0 auto var(--spacing-sm);
+    opacity: 0.9;
+}
+
+.order-meta {
+    font-family: var(--font-primary);
+    font-size: clamp(0.7rem, 1.1vw, 0.8rem);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+    margin-bottom: var(--spacing-md);
+}
+
+.order-meta strong {
+    font-weight: 700;
+    opacity: 1;
+}
+
+/* ---- Category quick-nav ---- */
+
+.category-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: var(--max-content-width);
+}
+
+.category-nav a {
+    font-family: var(--font-primary);
+    font-size: clamp(0.7rem, 1.1vw, 0.8rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid transparent;
+    transition: opacity 0.3s ease, border-color 0.3s ease;
+}
+
+.category-nav a:hover {
+    opacity: 1;
+    border-bottom-color: var(--color-text);
+}
+
+/* ---- Form layout ---- */
+
+.order-form {
+    width: 100%;
+    max-width: var(--max-content-width);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-section {
+    width: 65%;
+    max-width: var(--max-content-width);
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-section-title {
+    font-family: var(--font-primary);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-xs);
+}
+
+.form-section-subtitle {
+    font-family: var(--font-primary);
+    font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+    font-style: italic;
+    opacity: 0.7;
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-row {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1 1 200px;
+    margin-bottom: var(--spacing-sm);
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    font-family: var(--font-primary);
+    font-size: clamp(0.7rem, 1vw, 0.8rem);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+    padding: 0.6rem 0.1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-textarea {
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-bottom-color: var(--color-text);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--color-text-dark);
+    opacity: 0.6;
+}
+
+/* ---- Menu items with quantity steppers ---- */
+
+.order-menu {
+    width: 65%;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    padding: clamp(0.6rem, 1.5vw, 0.85rem) 0;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.15);
+}
+
+.order-item:last-of-type {
+    border-bottom: none;
+}
+
+.order-item-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    min-width: 0;
+}
+
+.order-item-info .item-name {
+    background: none;
+    padding: 0;
+    white-space: normal;
+}
+
+.item-variant {
+    font-weight: 400;
+    opacity: 0.6;
+    font-size: 0.9em;
+    text-transform: none;
+    letter-spacing: normal;
+    margin-left: 0.35em;
+}
+
+.order-item-info .item-price {
+    background: none;
+    padding: 0;
+    font-weight: 400;
+    opacity: 0.7;
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+    margin-top: 0.2rem;
+}
+
+.item-price-varies {
+    font-style: italic;
+}
+
+/* ---- Quantity stepper ---- */
+
+.qty-stepper {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+}
+
+.qty-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+}
+
+.qty-btn:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
+}
+
+.qty-btn:active {
+    transform: scale(0.92);
+}
+
+.qty-input {
+    width: 2.4rem;
+    text-align: center;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+    padding: 0.25rem 0;
+    -moz-appearance: textfield;
+}
+
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.qty-input:focus {
+    outline: none;
+    border-bottom-color: var(--color-text);
+}
+
+/* ---- Allergen checkboxes ---- */
+
+.allergen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+}
+
+.allergen-check {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+    letter-spacing: 0.03em;
+}
+
+.allergen-check input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.allergen-check input[type="checkbox"]:checked {
+    background-color: var(--color-text);
+    border-color: var(--color-text);
+}
+
+.allergen-check input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--color-bg);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.allergen-check input[type="checkbox"]:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* ---- Order summary "receipt" ---- */
+
+.order-summary {
+    position: relative;
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    padding: var(--spacing-sm) var(--spacing-sm) calc(var(--spacing-sm) + 14px);
+    text-align: left;
+    margin: 0 auto var(--spacing-md);
+    max-width: 420px;
+}
+
+.order-summary-label {
+    font-family: var(--font-primary);
+    font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    margin-bottom: var(--spacing-xs);
+}
+
+.order-summary-items {
+    border-top: 1px dashed rgba(14, 14, 14, 0.3);
+    padding-top: 0.6rem;
+}
+
+.summary-empty {
+    font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+    font-style: italic;
+    opacity: 0.6;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+    padding: 0.3rem 0;
+    border-bottom: 1px dashed rgba(14, 14, 14, 0.2);
+}
+
+.summary-row:last-child {
+    border-bottom: none;
+}
+
+.summary-qty {
+    opacity: 0.6;
+    margin-left: 0.3em;
+}
+
+.order-summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-primary);
+    font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    margin-top: 0.75rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed rgba(14, 14, 14, 0.3);
+}
+
+/* torn paper edge */
+.order-summary::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    height: 10px;
+    background:
+        linear-gradient(-45deg, transparent 8px, var(--color-text) 8px),
+        linear-gradient(45deg, transparent 8px, var(--color-text) 8px);
+    background-size: 16px 16px;
+    background-position: left top;
+    background-repeat: repeat-x;
+}
+
+/* ---- Submit actions ---- */
+
+.form-actions {
+    text-align: center;
+}
+
+.form-error {
+    color: #ff8a80;
+    font-family: var(--font-primary);
+    font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+    min-height: 1.2em;
+    margin-bottom: var(--spacing-xs);
+}
+
+.submit-btn,
+.copy-btn {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto var(--spacing-xs);
+    font-family: var(--font-primary);
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: clamp(0.85rem, 2vw, 1.1rem);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    border: 1px solid var(--color-text);
+}
+
+.submit-btn:hover {
+    background-color: transparent;
+    color: var(--color-text);
+}
+
+.copy-btn {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.copy-btn:hover {
+    border-color: var(--color-text);
+}
+
+.form-help {
+    font-family: var(--font-primary);
+    font-size: clamp(0.7rem, 1vw, 0.78rem);
+    font-style: italic;
+    opacity: 0.6;
+    max-width: 420px;
+    margin: var(--spacing-xs) auto 0;
+    line-height: 1.7;
+}
+
+.confirmation-panel {
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---- Sticky order bar ---- */
+
+.order-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.75rem, 3vw, 1.5rem);
+    background-color: rgba(14, 14, 14, 0.92);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.85rem var(--spacing-sm);
+    font-family: var(--font-primary);
+    font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.order-bar-total {
+    font-weight: 900;
+}
+
+.order-bar-btn {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 0.5rem 1rem;
+    font-family: var(--font-primary);
+    font-size: clamp(0.7rem, 1vw, 0.8rem);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.order-bar-btn:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
+
+body.order-bar-active {
+    padding-bottom: 70px;
+}
+
+/* ---- Footer ---- */
+
+.event-footer {
+    max-width: var(--max-content-width);
+    width: 65%;
+    text-align: center;
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.event-footer .contact-buttons {
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.back-link {
+    display: inline-block;
+    font-family: var(--font-primary);
+    font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.6;
+    margin-top: var(--spacing-xs);
+    transition: opacity 0.3s ease;
+}
+
+.back-link:hover {
+    opacity: 1;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 768px) {
+    .form-section,
+    .order-menu,
+    .event-footer {
+        width: 88%;
+    }
+
+    .order-item {
+        gap: var(--spacing-xs);
+    }
+
+    .qty-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .order-bar {
+        justify-content: space-between;
+    }
+
+    .category-nav {
+        gap: 0.75rem 1.25rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .form-section,
+    .order-menu,
+    .event-footer {
+        width: 78%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .qty-btn,
+    .submit-btn,
+    .copy-btn,
+    .order-bar-btn,
+    .category-nav a {
+        transition: none !important;
+    }
+}
