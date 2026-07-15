@@ -223,7 +223,8 @@
         const groupInput = document.getElementById('orderGroup');
         const group = groupInput ? groupInput.value.trim() : '';
         const email = document.getElementById('orderEmail').value.trim();
-        const time = document.getElementById('orderTime').value.trim();
+        const timeInput = document.getElementById('orderTime');
+        const time = timeInput ? timeInput.value.trim() : '';
         const allergens = Array.prototype.slice.call(document.querySelectorAll('input[name="allergen"]:checked'))
             .map(function(el) { return el.value; });
         const notes = document.getElementById('dietaryNotes').value.trim();
@@ -287,97 +288,77 @@
         return true;
     }
 
-    // ---- SUBMIT (auto-send via Web3Forms) + COPY FALLBACK ----
+    // ---- SUBMIT (Web3Forms) ----
     function initFormSubmit() {
         const form = document.getElementById('orderForm');
-        const copyBtn = document.getElementById('copyOrderBtn');
         const confirmationPanel = document.getElementById('confirmationPanel');
         const submitBtn = document.getElementById('submitOrderBtn');
         const errorEl = document.getElementById('formError');
 
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                if (!validateForm()) return;
+        if (!form) return;
 
-                const name = document.getElementById('orderName').value.trim();
-                const email = document.getElementById('orderEmail').value.trim();
-                const orderText = buildOrderText();
-                const subject = EVENT_CONFIG.eventName + ' Pre-Order - ' + name;
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!validateForm()) return;
 
-                const payload = {
-                    access_key: EVENT_CONFIG.web3FormsAccessKey,
-                    subject: subject,
-                    from_name: 'Pavilion Coffee Website',
-                    name: name,
-                    message: orderText,
-                    botcheck: ''
-                };
-                if (email) {
-                    payload.email = email;
-                    payload.replyto = email;
-                }
+            const name = document.getElementById('orderName').value.trim();
+            const email = document.getElementById('orderEmail').value.trim();
+            const orderText = buildOrderText();
+            const subject = EVENT_CONFIG.eventName + ' Pre-Order - ' + name;
+            const botcheckEl = form.querySelector('[name="botcheck"]');
 
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Sending…';
-                errorEl.textContent = '';
+            const payload = {
+                access_key: EVENT_CONFIG.web3FormsAccessKey,
+                subject: subject,
+                from_name: name,
+                message: orderText,
+                botcheck: botcheckEl ? botcheckEl.checked : false
+            };
+            if (email) {
+                payload.email = email;
+                payload.replyto = email;
+            }
 
-                fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending…';
+            errorEl.textContent = '';
+            if (confirmationPanel) confirmationPanel.hidden = true;
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+                .then(function(response) {
+                    return response.json().then(function(data) {
+                        return { ok: response.ok, data: data };
+                    });
                 })
-                    .then(function(response) {
-                        return response.json();
-                    })
-                    .then(function(data) {
-                        if (data.success) {
-                            if (confirmationPanel) {
-                                confirmationPanel.textContent = "Thanks — your order has been sent to us. We'll follow up with a secure payment link or invoice by email before the event — no need to pay now.";
-                                confirmationPanel.hidden = false;
-                                confirmationPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            }
-                            showToast('Order sent!');
-                            form.reset();
-                            updateSummary();
-                            submitBtn.textContent = 'Send Order';
-                            submitBtn.disabled = false;
-                        } else {
-                            throw new Error((data && data.message) || 'Submission failed');
-                        }
-                    })
-                    .catch(function() {
-                        errorEl.textContent = 'Something went wrong sending your order online. Please tap "Copy Order Details" below and email it to us directly, or call the cafe.';
-                        submitBtn.textContent = 'Send Order';
-                        submitBtn.disabled = false;
-                    });
-            });
-        }
-
-        if (copyBtn) {
-            copyBtn.addEventListener('click', function() {
-                if (!validateForm()) return;
-
-                const orderText = buildOrderText();
-
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(orderText).then(function() {
-                        showToast('Order details copied!');
+                .then(function(result) {
+                    if (result.ok && result.data && result.data.success) {
                         if (confirmationPanel) {
-                            confirmationPanel.textContent = 'Order details copied to your clipboard. Please paste them into a new email to us so we receive your order.';
+                            confirmationPanel.textContent = 'Thanks — your order has been sent to us.';
                             confirmationPanel.hidden = false;
+                            confirmationPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         }
-                    }).catch(function() {
-                        showToast('Could not copy — please try again.');
-                    });
-                } else {
-                    showToast('Copy not supported on this browser.');
-                }
-            });
-        }
+                        showToast('Order sent!');
+                        form.reset();
+                        updateSummary();
+                    } else {
+                        errorEl.textContent = 'Something went wrong sending your order. Please try again, or email us directly at ' + EVENT_CONFIG.orderEmail + '.';
+                    }
+                })
+                .catch(function() {
+                    errorEl.textContent = 'Could not send your order — please check your connection and try again, or email us directly at ' + EVENT_CONFIG.orderEmail + '.';
+                })
+                .finally(function() {
+                    submitBtn.textContent = 'Send Order';
+                    submitBtn.disabled = false;
+                });
+        });
     }
 
     // ---- ORDER BAR JUMP LINK ----

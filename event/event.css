@@ -1,10 +1,3 @@
-/* ============================================================
-   EVENT PRE-ORDER PAGE STYLES
-   Extends main.css — uses the same variables, fonts and colors.
-   This whole file is only needed while the temporary event
-   pre-order page exists. Delete event.css / event.js /
-   event-order.html together once the event has passed.
-   ============================================================ */
 
 .page-order {
     padding-bottom: var(--spacing-xl);
@@ -433,8 +426,7 @@
     margin-bottom: var(--spacing-xs);
 }
 
-.submit-btn,
-.copy-btn {
+.submit-btn {
     display: block;
     width: 100%;
     max-width: 360px;
@@ -458,16 +450,6 @@
 .submit-btn:hover {
     background-color: transparent;
     color: var(--color-text);
-}
-
-.copy-btn {
-    background-color: transparent;
-    color: var(--color-text);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.copy-btn:hover {
-    border-color: var(--color-text);
 }
 
 .form-help {
@@ -610,7 +592,6 @@ body.order-bar-active {
 @media (prefers-reduced-motion: reduce) {
     .qty-btn,
     .submit-btn,
-    .copy-btn,
     .order-bar-btn,
     .category-nav a {
         transition: none !important;
