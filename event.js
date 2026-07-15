@@ -5,7 +5,7 @@
         eventName: 'Broomfields Lunch',                    
         eventDateText: '24/07/2026',       
         orderDeadlineText: '22/07/2026', 
-        orderEmail: 'thepavilioncoffee@gmail.com',    
+        orderEmail: 'benellis1867@gmail.com',    
         web3FormsAccessKey: '1d92118c-4c8a-42b6-8ec2-259ebc352b60' 
     };
 
@@ -220,7 +220,8 @@
     function buildOrderText() {
         const items = getOrderItems();
         const name = document.getElementById('orderName').value.trim();
-        const group = document.getElementById('orderGroup').value.trim();
+        const groupInput = document.getElementById('orderGroup');
+        const group = groupInput ? groupInput.value.trim() : '';
         const email = document.getElementById('orderEmail').value.trim();
         const time = document.getElementById('orderTime').value.trim();
         const allergens = Array.prototype.slice.call(document.querySelectorAll('input[name="allergen"]:checked'))

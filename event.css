@@ -493,9 +493,7 @@
 /* ---- Sticky order bar ---- */
 
 .order-bar {
-    position: fixed;
-    left: 0;
-    right: 0;
+    position: sticky;
     bottom: 0;
     z-index: 900;
     display: flex;
@@ -510,6 +508,11 @@
     font-size: clamp(0.75rem, 1.1vw, 0.85rem);
     text-transform: uppercase;
     letter-spacing: 0.06em;
+    margin-top: var(--spacing-md);
+    width: min(100%, calc(var(--max-content-width) - 2rem));
+    max-width: calc(var(--max-content-width) - 2rem);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .order-bar-total {
@@ -535,7 +538,7 @@
 }
 
 body.order-bar-active {
-    padding-bottom: 70px;
+    padding-bottom: 0;
 }
 
 /* ---- Footer ---- */
