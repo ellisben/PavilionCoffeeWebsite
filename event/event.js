@@ -12,8 +12,9 @@
     const CONFIG = {
         loadingTime: 1200,
         scrollThreshold: 50,
-        observerMargin: '-50px',
-        observerThreshold: 0.15
+        observerMargin: '0px',
+        observerThreshold: 0.01,
+        revealFallbackTime: 1800
     };
 
     let ticking = false;
@@ -81,6 +82,17 @@
         document.querySelectorAll('.fade-in').forEach(function(el) {
             observer.observe(el);
         });
+    }
+
+    // ---- SAFETY NET: force-reveal any fade-in element that never triggered ----
+    // Guards against IntersectionObserver edge cases on certain devices/browsers
+    // (e.g. very tall sections, older browser quirks) leaving content invisible.
+    function initRevealFallback() {
+        setTimeout(function() {
+            document.querySelectorAll('.fade-in:not(.visible)').forEach(function(el) {
+                el.classList.add('visible');
+            });
+        }, CONFIG.revealFallbackTime);
     }
 
     // ---- TOAST ----
@@ -390,6 +402,7 @@
         injectEventConfig();
         initHeaderScroll();
         initScrollAnimations();
+        initRevealFallback();
         initQuantitySteppers();
         initFormSubmit();
         initOrderBar();
