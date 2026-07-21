@@ -221,6 +221,46 @@
     font-style: italic;
 }
 
+/* ---- Item options (bread / sauce dropdowns) ---- */
+
+.item-options {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.9rem;
+    margin-top: 0.4rem;
+}
+
+.option-label {
+    font-family: var(--font-primary);
+    font-size: clamp(0.62rem, 0.9vw, 0.7rem);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.55;
+}
+
+.option-select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    font-size: clamp(0.75rem, 1vw, 0.82rem);
+    padding: 0.15rem 0.1rem;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.option-select:focus {
+    outline: none;
+    border-bottom-color: var(--color-text);
+}
+
+.option-select option {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
 /* ---- Quantity stepper ---- */
 
 .qty-stepper {

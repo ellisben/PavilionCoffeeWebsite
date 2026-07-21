@@ -149,8 +149,17 @@
             const qtyInput = el.querySelector('.qty-input');
             const qty = parseInt(qtyInput.value, 10) || 0;
             if (qty > 0) {
+                let name = el.getAttribute('data-name');
+                const breadSelect = el.querySelector('.bread-select');
+                const sauceSelect = el.querySelector('.sauce-select');
+                const optionParts = [];
+                if (breadSelect) optionParts.push(breadSelect.value);
+                if (sauceSelect) optionParts.push(sauceSelect.value);
+                if (optionParts.length > 0) {
+                    name += ' (' + optionParts.join(', ') + ')';
+                }
                 items.push({
-                    name: el.getAttribute('data-name'),
+                    name: name,
                     price: parseFloat(el.getAttribute('data-price')) || 0,
                     qty: qty
                 });
