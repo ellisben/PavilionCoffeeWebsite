@@ -3,8 +3,8 @@
 
     const EVENT_CONFIG = {
         eventName: 'Broomfields Lunch',                    
-        eventDateText: '24/07/2026',       
-        orderDeadlineText: '22/07/2026', 
+        eventDateText: '23/10/2026',       
+        orderDeadlineText: '21/10/2026', 
         orderEmail: 'bigboyben2152@gmail.com',    
         web3FormsAccessKey: 'db27c909-0d0c-4982-9715-7613b24a88fd' 
     };
